@@ -1,84 +1,163 @@
-# Turborepo starter
+# GUTPriority
 
-This Turborepo starter is maintained by the Turborepo core team.
+GUTPriority é um SaaS de priorização de atividades baseado na metodologia Matriz GUT (Gravidade, Urgência, Tendência) que permite a indivíduos e equipes gerenciarem suas demandas de forma eficiente e estruturada.
 
-## Using this example
+## 🎯 Funcionalidades
 
-Run the following command:
+- 📊 **Avaliação GUT**
+  - Avalie tarefas usando critérios GUT (1-5)
+  - Cálculo automático de prioridade (G×U×T)
+  - Histórico de avaliações
+  - Avaliações colaborativas em equipe
 
-```sh
-npx create-turbo@latest
+- 👥 **Workspaces e Equipes**
+  - Múltiplos workspaces (pessoal/trabalho)
+  - Convite de membros
+  - Controle de permissões
+  - Colaboração em tempo real
+
+- ✅ **Gestão de Tarefas**
+  - Criação e organização de tarefas
+  - Atribuições e dependências
+  - Anexos e comentários
+  - Tags e categorização
+
+- 📈 **Visualizações**
+  - Lista priorizada
+  - Kanban board
+  - Matriz GUT
+  - Dashboards personalizados
+
+- 🔔 **Notificações**
+  - Alertas de alta prioridade
+  - Lembretes de prazos
+  - Notificações de atribuição
+  - Atualizações de tarefas
+
+- 🔄 **Integrações**
+  - Jira
+  - Trello
+  - Asana
+  - API pública
+
+## 🚀 Tecnologias
+
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI
+- Zustand
+- React Query
+
+### Backend
+- NestJS
+- TypeScript
+- Drizzle ORM
+- PostgreSQL
+- Redis
+
+### DevOps
+- Docker
+- AWS (ECS, RDS, S3)
+- GitHub Actions
+- Terraform
+
+## 📦 Estrutura do Projeto
+
+```
+apps/
+  ├── web/           # Aplicação Next.js
+  ├── api/           # API NestJS
+  └── admin/         # Painel de administração
+packages/
+  ├── ui/            # Componentes compartilhados
+  ├── config/        # Configurações compartilhadas
+  ├── types/         # Tipos TypeScript
+  ├── utils/         # Utilitários
+  ├── auth/          # Lógica de autenticação
+  └── env/           # Configurações de ambiente
 ```
 
-## What's inside?
+## 🛠️ Desenvolvimento
 
-This Turborepo includes the following packages/apps:
+### Pré-requisitos
 
-### Apps and Packages
+- Node.js 18+
+- Docker
+- pnpm
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Instalação
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/gutpriority.git
+cd gutpriority
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
+2. Instale as dependências
+```bash
+pnpm install
 ```
-cd my-turborepo
+
+3. Configure as variáveis de ambiente
+```bash
+cp .env.example .env
+```
+
+4. Inicie os serviços Docker
+```bash
+docker-compose up -d
+```
+
+5. Execute as migrações
+```bash
+pnpm db:migrate
+```
+
+6. Inicie o ambiente de desenvolvimento
+```bash
 pnpm dev
 ```
 
-### Remote Caching
+## 📝 Documentação
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+- [Especificação do Projeto](./documentation/project-spec.md)
+- [Documento de Design](./documentation/design-doc.md)
+- [Modelo de Domínio](./documentation/domain-model.md)
+- [Requisitos do Projeto](./documentation/project-requirements.md)
+- [ADRs](./documentation/adrs/)
+- [Diagramas](./documentation/diagrams/)
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+## 🤝 Contribuição
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+1. Faça o fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'feat: Add AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-```
-cd my-turborepo
-npx turbo login
-```
+## 📄 Licença
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## 📊 Roadmap
 
-```
-npx turbo link
-```
+### Fase 1: MVP (Mês 1-3)
+- [x] Configuração do monorepo
+- [ ] Autenticação básica
+- [ ] CRUD de tarefas
+- [ ] Avaliação GUT
+- [ ] Interface básica
 
-## Useful Links
+### Fase 2: Colaboração (Mês 4-6)
+- [ ] Workspaces e equipes
+- [ ] Avaliação colaborativa
+- [ ] Notificações
+- [ ] Dashboards
 
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+### Fase 3: Expansão (Mês 7-12)
+- [ ] Integrações
+- [ ] Analytics
+- [ ] API pública
+- [ ] Monetização
